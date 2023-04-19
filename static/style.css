@@ -1,0 +1,14 @@
+
+.paragraph {
+    color: blue;
+    font-size: 25px;
+    font-weight: normal;
+    font-family: Didot;
+}
+
+
+.auth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

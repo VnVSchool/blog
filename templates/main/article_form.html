@@ -1,29 +1,28 @@
-{% extends 'layouts/base.html' %}
+<div class="cl">
+  {% extends 'layouts/base.html' %}
 
-{% block content %}
+  {% block content %}
     <div class="container">
-        <form {% if article %} action="/article/{{ article.id }}/update" {% else %} action="/article" {% endif %} method="POST">
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Title</label>
-              <input type="text" class="form-control" name="title" id="exampleFormControlInput1" {% if article %} value="{{ article.title }}" {% endif %}}>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-              <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3">{% if article %} {{ article.body }} {% endif %}</textarea>
-            </div>
-            <div class="mb-3">
-                <select class="form-select" name="category" aria-label="Default select example">
-                    {% for category in categories %}
-                        <option {% if article and article.category_id == category.id %} selected {% endif %} value="{{ category.id }}">{{ category.title }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-
-            <div class="text-center">
-                <button type="submit" class="btn text-center btn-primary">Save</button>
-            </div>
-
-        </form>
+      <form {% if article %} action="/article/{{ article.id }}/update" {% else %} action="/article" {% endif %} method="POST">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Title</label>
+          <input type="text" class="form-control" name="title" id="exampleFormControlInput1" {% if article %} value="{{ article.title }}" {% endif %}}>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+          <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3">{% if article %} {{ article.body }} {% endif %}</textarea>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" name="category" aria-label="Default select example">
+                {% for category in categories %}
+                    <option {% if article and article.category_id == category.id %} selected {% endif %} value="{{ category.id }}">{{ category.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn text-center btn-primary">Save</button>
+        </div>
+      </form>
     </div>
-
-{% endblock %}
+  {% endblock %}
+</div>

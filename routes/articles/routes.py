@@ -79,4 +79,4 @@ def search():
     categories = Category.query.all()
     q = request.args.get("q", "")
     articles = Article.query.filter(Article.title.like("%" + q + "%") | Article.body.like("%" + q + "%")).all()
-    return render_template("main/index.html", articles=articles, categories=categories)
+    return render_template("main/all.html", articles=articles, categories=categories)

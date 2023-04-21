@@ -2,4 +2,5 @@ docker/db
 ./docker/db
 .idea
 ./.idea
+./venv
 */__pycache__

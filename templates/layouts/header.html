@@ -1,36 +1,24 @@
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">VNV Blog</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-              <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="/article/create">Create</a>
-              </li>
-            {% for category in categories %}
-              <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="/category/{{ category.id }}">{{ category.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-          <div class="auth">
-            {% if session["user"] %}
-              <p class="text-light me-3 mt-3">{{ session["user"]["email"] }}</p>
-              <a class="btn btn-sm me-3 btn-outline-success" href="/logout">Logout</a>
-            {% else %}
-              <a class="btn btn-outline-success" href="/sign-in">Sign In</a>
-              <a class="btn btn-outline-success" href="/sign-up">Sign Up</a>
-            {% endif %}
-          </div>
-          <form class="d-flex" action="/search" method="GET" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
+<header class="d-flex justify-content-center py-3 bg-body-tertiary ">
+  <ul class="nav nav-pills blog-header-logo">
+    <li><a href="/" class="nav-link px-2 text-white" >Home</a></li>
+      <li><a href="/all" class="nav-link px-2 text-white">All</a></li>
+      <li><a href="/article/create" class="nav-link px-2 text-white">Create</a></li>
+      <li><a href="/category/create" class="nav-link px-2 text-white">Category</a></li>
+  </ul>
+</header>
+
+<header class="py-3 mb-4 border-bottom text-bg-dark">
+  <div class="container d-flex flex-wrap justify-content-center">
+    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      <span class="navbar-brad"><img src="/static/img/ruby.png"></span>
+    </a>
+    {% if session["user"] %}
+      <h1 class="text-light py-2 border-bottom me-3 mt-4">{{ session["user"]["email"] }}</h1>
+      {% if session["user"] %}<a href="/logout" class="nav-link text-white me-s-3 mt-5 py-2" >Logout</a>{% endif %}
+    {% else %}
+      <h2><a href="/sign-up" class="nav-link px--1  text-white me-5 mt-5" >Sign up</a></h2>
+      <h2><a href="/sign-in" class="nav-link px--1  text-white me-5 mt-5" >Sign in</a></h2>
+    {% endif%}
+  </div>
+</header>

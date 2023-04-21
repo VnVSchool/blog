@@ -3,7 +3,6 @@ from models import Article, Category
 from flask import render_template, request, redirect
 
 
-
 @app.route("/article/<int:id>")
 def article_details(id):
     categories = Category.query.all()
@@ -80,4 +79,4 @@ def search():
     categories = Category.query.all()
     q = request.args.get("q", "")
     articles = Article.query.filter(Article.title.like("%" + q + "%") | Article.body.like("%" + q + "%")).all()
-    return render_template("main/index.html", articles=articles, categories=categories)
+    return render_template("main/all.html", articles=articles, categories=categories)

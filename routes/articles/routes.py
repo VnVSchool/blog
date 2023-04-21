@@ -3,7 +3,6 @@ from models import Article, Category
 from flask import render_template, request, redirect
 
 
-
 @app.route("/article/<int:id>")
 def article_details(id):
     categories = Category.query.all()

@@ -1,0 +1,50 @@
+footer {
+    background-color: rgba(4, 4, 4, 0.915);
+    padding-top: 50px;
+    border-top: 4px solid silver;
+    color: white;
+}
+
+.social a {
+    font-size: 4em;
+    padding: 10px;
+}
+
+.fa-facebook {color: rgb(22, 47, 238);}
+.fa-telegram {color: rgb(78, 96, 234);}
+.fa-twitter {color: rgb(22, 47, 238);}
+.fa-instagram {color: rgb(218, 19, 141);}
+.fa-youtube {color: rgb(255, 0, 8);}
+
+.fa-facebook:hover, .fa-instagram:hover,
+.fa-twitter:hover, .fa-telegram:hover,
+.fa-youtube:hover {
+    color: #ccc;
+}
+
+.bg-body-tertiary {
+    background-color: rgba(0, 0, 0, 0.975);
+    padding-top: 50px;
+    color: rgb(223, 17, 17);
+}
+
+.cl {
+    background-color: rgba(233, 227, 227, 0.915);
+}
+
+.navbar-brad img {width: 120px;}
+
+
+.blog-header-logo {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+    font-size: 2.25rem;
+}
+
+
+
+.badge{
+    max-width: 500%;
+    max-height: 500px;
+    margin-bottom: 0px;
+}
+

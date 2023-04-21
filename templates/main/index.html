@@ -1,16 +1,146 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-    <div>
-        {% for article in articles %}
-        <div>
-            <h2>{{ article.title }}</h2>
-            <p>{{ article.body }}</p>
-            <p><a href="/article/{{ article.id }}">Read More</a></p>
-            <p><a href="/article/{{ article.id }}/edit">Edit</a></p>
-            <p><a href="/article/{{ article.id }}/delete">Delete</a></p>
-        </div>
-        <hr>
-        {% endfor %}
-    </div>
+
+<!-- <div class="container"> -->
+<div class="carousel slide" data-ride="carousel" id="slides">
+  <ul class="carousel-indicators">
+     <li data-target="#slides" data-slide-to="0" class="active"></li>
+     <li data-target="#slides" data-slide-to="1"></li>
+     <li data-target="#slides" data-slide-to="2"></li>
+  </ul>
+ <div class="carousel-inner ">
+   <div class="carousel-item active">
+       <img src="static/img/black.jpg">
+         <div class="carousel-caption">
+           <h1 class="display-2">Програмування</h1>
+           <h3>Навчіться програмувати</h3>
+           <buttom type="buttom" class="btn btn-outline-light btn-lg">Подивитись</buttom>
+           <buttom type="buttom" class="btn btn-warning btn-lg">Демо сайт</buttom>
+         </div>
+   </div>
+   <div class="carousel-item">
+       <img src="static/img/green.jpg">
+   </div>
+   <div class="carousel-item">
+       <img src="static/img/blue.jpg">
+   </div>
+ </div>
+</div>
+<!--Основний блок сайту-->
+
+<!--Блок з характеристиками-->
+<div class="container-fluid">
+ <div class="row text-center alert">
+   <div class="col-12">
+     <h1 class="display-4">Створеня сайту</h1>
+   </div>
+   <hr>
+   <div class="col-12">
+       <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Voluptate doloribus placeat numquam molestias provident voluptatem dolorum saepe consectetur fugit assumenda quis quae reprehenderit, sunt adipisci molestiae est earum ea cupiditate. Magnam nemo tempore, ducimus praesentium hic odio, neque sequi ipsum, alias eum nostrum obcaecati?
+          Tempora dicta, eum necessitatibus hic omnis commodi architecto aliquid nihil!
+         Libero molestiae dolor dignissimos totam similique!</p>
+   </div>
+ </div>
+</div>
+<!--Блок з описом мов програмування-->
+<div class="container-fluid padding">
+ <div class="row text-center padding">
+   <div class="col-xs-12 col-sm-6 col-md-4">
+     <i class="fas fa-code"></i>
+     <h3>HTML5</h3>
+     <p>Lorem ipsum dolor sit amet.</p>
+   </div>
+   <div class="col-xs-12 col-sm-6 col-md-4">
+     <i class="fas fa-bold"></i>
+     <h3>Bootstrap</h3>
+     <p>Lorem ipsum dolor sit amet.</p>
+   </div>
+   <div class="col-xs-12 col-sm-6 col-md-4">
+     <i class="fab fa-css3"></i>
+     <h3>CSS3</h3>
+     <p>Lorem ipsum dolor sit amet.</p>
+   </div>
+ </div>
+ <hr class="my-4">
+</div>
+<!--секція з текстом та зображенням-->
+<div class="container-fluid padding">
+ <div class="row padding">
+   <div class="offset-lg-2 col-lg-4">
+     <h2>Щось про програмування</h2>
+     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Natus odit consequatur saepe dolores molestias dignissimos magnam sunt praesentium neque,
+        nesciunt dolore maiores, assumenda unde?
+        Sint, nemo! Inventore beatae sunt pariatur?
+       <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        exercitationem maxime dolores deleniti totam sequi cupiditate
+        veritatis impedit
+        magni autem error. Delectus, eligendi!
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Cupiditate, vitae. Qui, iusto, odit ex repellendus consectetur,
+        veritatis impedit
+        magni autem error. Delectus, eligendi!</p>
+        <br>
+        <a href="#" class="btn btn-danger">Читати далі</a>
+   </div>
+   <div class="col-lg-5">
+   <img src="https://www.shutterstock.com/image-illustration/word-ruby-lined-gold-letters-600w-477076672.jpg" class="img-fluid">
+   </div>
+ </div>
+</div>
+<!--Карточки з мовами програмування-->
+<div class="container-fluid padding">
+ <div class="row alert text-center">
+   <div class="col-12">
+     <h1 class="display-4">Мови програмування</h1>
+   </div>
+   <hr>
+ </div>
+</div>
+<div class="container padding">
+ <div class="row padding">
+   <div class="col-md-4">
+     <div class="card">
+       <img src="static/img/week1.jpg"class="card-img-top">
+       <div class="card-body">
+         <h4 class="card-title">Unreal Engien</h4>
+         <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Ut at quae labore cumque sit ea fuga, tempora et molestiae
+            voluptatem aut vel recusandae odit temporibus distinctio!</p>
+            <a href="#" class="btn btn-warning">Прегляд</a>
+       </div>
+     </div>
+     </div>
+     <div class="col-md-4">
+       <div class="card">
+         <img src="static/img/week2.jpg"class="card-img-top">
+         <div class="card-body">
+           <h4 class="card-title">Unreal Engien</h4>
+           <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Ut at quae labore cumque sit ea fuga, tempora et molestiae
+              voluptatem aut vel recusandae odit temporibus distinctio!</p>
+              <a href="#" class="btn btn-warning">Прегляд</a>
+         </div>
+       </div>
+     </div>
+     <div class="col-md-4">
+       <div class="card">
+         <img src="static/img/week4.jpg"class="card-img-top">
+         <div class="card-body">
+           <h4 class="card-title">Unreal Engien</h4>
+           <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Ut at quae labore cumque sit ea fuga, tempora et molestiae
+              voluptatem aut vel recusandae odit temporibus distinctio!</p>
+              <a href="#" class="btn btn-warning">Прегляд</a>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
 {% endblock %}

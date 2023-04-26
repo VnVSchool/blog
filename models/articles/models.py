@@ -2,6 +2,7 @@ from app import db
 
 
 class Article(db.Model):
+    __tablename__ = 'article'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
     body = db.Column(db.Text, nullable=False)
@@ -20,4 +21,4 @@ class Category(db.Model):
     __tablename__ = "categories"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
-    articles = db.relationship("Article", backref="articles")
+    articles = db.relationship("Article", backref="category")

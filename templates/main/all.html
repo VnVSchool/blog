@@ -48,12 +48,16 @@
                <div class="row">
                  <div class="col-sm-6">
                     <ul class="list-unstyled mb-0">
-                      {% for category in categories %}
-                      <h5><a href="/category/{{ category.id }}">{{ category.title }}n</a></h5>
-                      <!-- <li><a href="#!">HTML</a></li> -->
-                     </ul>
-                   {% endfor %}
-                 </div>
+                    {% for category in categories %}
+                    <li>
+                        <div class="d-flex align-items-center category-container">
+                            <h5 class="mb-0"><a href="/category/{{ category.id }}">{{ category.title }}</a></h5>
+                            <a class="badge rounded-pill bg-primary mx-3 btn btn-outline-info" href="/category/{{ category.id }}/edit">Edit</a>
+                            <a class="badge rounded-pill bg-primary  btn btn-outline-info" href="/category/{{ category.id }}/delete">Delete</a>
+                        </div>
+                        <hr>
+                    </li>
+                    {% endfor %}
                 </ul>
               </div>
             </div>

@@ -2,8 +2,10 @@
   <ul class="nav nav-pills blog-header-logo">
     <li><a href="/" class="nav-link px-2 text-white" >Home</a></li>
       <li><a href="/all" class="nav-link px-2 text-white">All</a></li>
-      <li><a href="/article/create" class="nav-link px-2 text-white">Create</a></li>
-      <li><a href="/category/create" class="nav-link px-2 text-white">Category</a></li>
+      {% if session["user"] %}
+        <li><a href="/article/create" class="nav-link px-2 text-white">Create</a></li>
+        <li><a href="/category/create" class="nav-link px-2 text-white">Category</a></li>
+      {% endif %}
   </ul>
 </header>
 

@@ -7,6 +7,7 @@ class User(db.Model):
     last_name = db.Column(db.String(255), nullable=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
+    articles = db.relationship("Article", backref="author", lazy="dynamic")
 
     @property
     def serialize(self):

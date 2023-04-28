@@ -1,6 +1,7 @@
 from app import app, db
 from models import Article, Category
 from flask import render_template, request, redirect
+from routes.users import current_user
 
 
 @app.route("/article/<int:id>")
@@ -19,7 +20,9 @@ def article_create():
 @app.route("/article", methods=["POST"])
 def article_save():
     data = request.form
-    article = Article(title=data.get("title"), body=data.get("body"), category_id=int(data.get("category")))
+    user = current_user()
+    article = Article(title=data.get("title"), body=data.get("body"), category_id=int(data.get("category")),
+                      user_id=user["id"])
     db.session.add(article)
     db.session.commit()
     return redirect("/")

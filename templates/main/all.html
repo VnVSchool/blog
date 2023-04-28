@@ -1,6 +1,7 @@
 <div class="cl">
 {% extends 'layouts/base.html' %}
 
+
 {% block content %}
 
 <div class="container mt-5">
@@ -9,6 +10,7 @@
         <article>
           <header class="mb-4">
               <h1 class="fw-bolder text-center ">All Article!</h1><hr>
+
           </header>
               <section class="mb-5">
                   {% for article in articles %}
@@ -17,10 +19,12 @@
                       <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
                         <div class="d-flex justify-content-between">
                             <h3><a href="/article/{{ article.id }}">{{article.title }}</a></h3>
+                            {% if current_user.id == article.user_id %}
                             <div class="text-down me-3 pt-3">
                               <a class="badge rounded-pill bg-primary me-3 btn btn-outline-info" href="/article/{{ article.id }}/edit">Edit</a>
                               <a class="badge rounded-pill bg-primary me-3 btn btn-outline-info" href="/article/{{ article.id }}/delete">Delete</a>
                           </div>
+                            {% endif %}
                         </div>
                         <h5><span class="d-block">{{article.body }}</span></h5>
                       </div>

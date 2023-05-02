@@ -86,6 +86,7 @@ def category_update(id):
     db.session.add(category)
     db.session.commit()
     return redirect("/all")
+
 @app.route("/category/<int:id>/delete")
 def category_delete(id):
     category = Category.query.get(id)

@@ -40,6 +40,8 @@ services:
       - 1441:80
     networks:
       - app
+    depends_on:
+      - app
 
 networks:
   app:

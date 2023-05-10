@@ -1,3 +1,4 @@
+import requests
 from app import api, db
 from flask_restful import Resource
 from flask import request
@@ -63,6 +64,13 @@ class CategoryResource(Resource):
         return categories_list
 
 
+class GithubResource(Resource):
+    def get(self):
+        res = requests.get("https://api.github.com")
+        return res.json()
+
+
 api.add_resource(ArticleResource, "/api/v1/articles")
 api.add_resource(ArticleSingleResource, "/api/v1/articles/<int:id>")
 api.add_resource(CategoryResource, "/api/v1/categories")
+api.add_resource(GithubResource, "/api/v1/github")

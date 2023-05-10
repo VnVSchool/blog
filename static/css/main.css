@@ -29,7 +29,40 @@ footer {
 }
 
 .cl {
-    background-color: rgba(233, 227, 227, 0.915);
+    background-color: rgba(240, 209, 209, 0.915);
+}
+
+
+.cle {
+    background-image: url(/static/logo/category.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.clup {
+    background-image: url(/static/logo/sign.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.cla {
+    background-image: url(/static/logo/art.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.clin {
+    background-image: url(/static/logo/sign-up.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .navbar-brad img {width: 120px;}
@@ -41,10 +74,28 @@ footer {
 }
 
 
-
 .badge{
     max-width: 500%;
     max-height: 500px;
     margin-bottom: 0px;
 }
 
+.page {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.car-cen {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 50%;
+    transform:translate(0, -50%);
+}

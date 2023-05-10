@@ -1,9 +1,9 @@
-<div class="cl">
+<div class="cla">
   {% extends 'layouts/base.html' %}
 
   {% block content %}
-    <div class="container">
-      <form {% if article %} action="/article/{{ article.id }}/update" {% else %} action="/article" {% endif %} method="POST">
+  <div class="container text-bg-dark car-cen" style="width: 60rem;">
+    <form {% if article %} action="/article/{{ article.id }}/update" {% else %} action="/article" {% endif %} method="POST">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Title</label>
           <input type="text" class="form-control" name="title" id="exampleFormControlInput1" {% if article %} value="{{ article.title }}" {% endif %}}>

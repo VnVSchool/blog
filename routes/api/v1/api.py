@@ -56,7 +56,13 @@ class ArticleSingleResource(Resource):
 
 class CategoryResource(Resource):
     def get(self):
-        categories = Category.query.all()
+        category_query = Category.query
+        if request.args.get("id"):
+            category_query = category_query.filter(Category.id == request.args.get("id"))
+        if request.args.get("title"):
+            category_query = category_query.filter(Category.title == request.args.get("title"))
+
+        categories = category_query.all()
         categories_list = []
         for category in categories:
             categories_list.append(category.serialize_with_article)

@@ -3,11 +3,11 @@
 
   {% block content %}
   <div class="container card p-3" style="width: 40rem;">
-    <h3 class="text-center">Tite category</h3>
-      <form action="/category/save" method="POST">
+    <h3 class="text-center">Title category</h3>
+      <form {% if category %} action="/category/{{ category.id }}/update" {% else %} action="/category/save" {% endif %} method="POST">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Title</label>
-          <input type="text" class="form-control" name="title" id="exampleFormControlInput1" {% if article %} value="{{ article.title }}" {% endif %}},  placeholder="Enter category name" >
+          <input type="text" class="form-control" name="title" id="exampleFormControlInput1" {% if category %} value="{{ category.title }}" {% endif %}},  placeholder="Enter category name" >
         </div>
         <div class="text-center">
             <button type="submit" class="btn text-center btn-primary">Save</button>

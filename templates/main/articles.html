@@ -1,0 +1,20 @@
+{% for article in articles %}
+    <div class="my-3 p-3 bg-body rounded shadow-sm alert alert-into">
+        <div class="d-flex text-body-secondary pt-3">
+            <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                <div class="d-flex justify-content-between">
+                    <h3><a href="/article/{{ article.id }}">{{ article.title }}</a></h3>
+                    {% if current_user.id == article.user_id %}
+                        <div class="text-down me-3 pt-3">
+                            <a class="badge rounded-pill bg-primary me-3 btn btn-outline-info"
+                               href="/article/{{ article.id }}/edit">Edit</a>
+                            <a class="badge rounded-pill bg-primary me-3 btn btn-outline-info"
+                               href="/article/{{ article.id }}/delete">Delete</a>
+                        </div>
+                    {% endif %}
+                </div>
+                <h5><span class="d-block">{{ article.body }}</span></h5>
+            </div>
+        </div>
+    </div>
+{% endfor %}

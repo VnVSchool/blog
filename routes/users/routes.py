@@ -32,6 +32,12 @@ def sign_in():
     else:
         return render_template("main/sign-in.html")
 
+def current_user():
+    return session.get("user")
+
+@app.context_processor
+def inject_current_user():
+    return dict(current_user=current_user())
 
 @app.route("/logout")
 def logout():

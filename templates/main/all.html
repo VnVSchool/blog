@@ -1,0 +1,74 @@
+<div class="cl">
+    {% extends 'layouts/base.html' %}
+    {% block content %}
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <article>
+                        <header class="mb-4">
+                            <h1 class="fw-bolder text-center ">All Article!</h1>
+                            <hr>
+                        </header>
+                        <section class="mb-5" id="articles-section">
+                            {% include 'main/articles.html' %}
+                        </section>
+                    </article>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header">Search</div>
+                        <div class="card-body">
+                            <div class="d-flex" action="/search" method="GET" role="search">
+                                <input class="form-control me-2" type="search" id="search-query" placeholder="Search"
+                                       aria-label="Search">
+                                <div id="search-results"></div>
+                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                <script>
+                                    $(document).ready(function () {
+                                        $("#search-query").on("input", function () {
+                                            var query = $(this).val();
+                                            $.ajax({
+                                                url: "/search",
+                                                data: {q: query},
+                                                success: function (data) {
+                                                    $("#articles-section").html(data);
+                                                }
+                                            });
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">Categories</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        {% for category in categories %}
+                                            <li>
+                                                <div class="d-flex align-items-center category-container">
+                                                    <h5 class="mb-0"><a
+                                                            href="/category/{{ category.id }}">{{ category.title }}</a>
+                                                    </h5>
+                                                    <a class="badge rounded-pill bg-primary mx-3 btn btn-outline-info"
+                                                       href="/category/{{ category.id }}/edit">Edit</a>
+                                                    <a class="badge rounded-pill bg-primary  btn btn-outline-info"
+                                                       href="/category/{{ category.id }}/delete">Delete</a>
+                                                </div>
+                                                <hr>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+</div>
+

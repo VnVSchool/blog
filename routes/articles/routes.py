@@ -1,7 +1,7 @@
 from app import app, db
 from models import Article, Category
 from flask import render_template, request, redirect
-
+from routes.users import current_user
 
 
 @app.route("/article/<int:id>")
@@ -20,10 +20,12 @@ def article_create():
 @app.route("/article", methods=["POST"])
 def article_save():
     data = request.form
-    article = Article(title=data.get("title"), body=data.get("body"), category_id=int(data.get("category")))
+    user = current_user()
+    article = Article(title=data.get("title"), body=data.get("body"), category_id=int(data.get("category")),
+                      user_id=user["id"])
     db.session.add(article)
     db.session.commit()
-    return redirect("/")
+    return redirect("/all")
 
 
 @app.route("/article/<int:id>/edit")
@@ -42,7 +44,7 @@ def article_update(id):
     article.category_id = request.form.get("category")
     db.session.add(article)
     db.session.commit()
-    return redirect("/")
+    return redirect("/all")
 
 
 @app.route("/article/<int:id>/delete")
@@ -50,7 +52,7 @@ def article_delete(id):
     article = Article.query.get(id)
     db.session.delete(article)
     db.session.commit()
-    return redirect("/")
+    return redirect("/all")
 
 
 @app.route("/category/<int:id>")
@@ -72,12 +74,34 @@ def category_save():
     category = Category(title=data.get("title"))
     db.session.add(category)
     db.session.commit()
-    return redirect("/")
+    return redirect("/all")
 
+
+@app.route("/category/<int:id>/edit")
+def category_edit(id):
+    category = Category.query.get(id)
+    return render_template("main/category_form.html", category=category)
+
+@app.route("/category/<int:id>/update", methods=["POST"])
+def category_update(id):
+    category = Category.query.get(id)
+    category.title = request.form.get("title")
+    db.session.add(category)
+    db.session.commit()
+    return redirect("/all")
+
+@app.route("/category/<int:id>/delete")
+def category_delete(id):
+    category = Category.query.get(id)
+    for article in category.articles:
+        db.session.delete(article)
+    db.session.delete(category)
+    db.session.commit()
+    return redirect("/all")
 
 @app.route("/search")
 def search():
     categories = Category.query.all()
     q = request.args.get("q", "")
     articles = Article.query.filter(Article.title.like("%" + q + "%") | Article.body.like("%" + q + "%")).all()
-    return render_template("main/index.html", articles=articles, categories=categories)
+    return render_template("main/articles.html", articles=articles, categories=categories)

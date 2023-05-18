@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_restful import Api
 
 
 app = Flask(__name__)
@@ -8,6 +9,8 @@ app = Flask(__name__)
 app.secret_key = 'seOnI5C9Jx6V57JOC9elNvxKrMjYD6pM'
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:root@db:3306/vnv_blog"
+
+api = Api(app)
 
 db = SQLAlchemy(app)
 
@@ -17,6 +20,7 @@ with app.app_context():
     from routes.main import *
     from routes.articles import *
     from routes.users import *
+    from routes.api.v1 import *
     from models import Article, User
 
 if __name__ == "__main__":

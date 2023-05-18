@@ -2,8 +2,10 @@ FROM python:3.10
 
 WORKDIR /app
 
+RUN pip install gunicorn
+
 COPY . /app
 
 RUN pip install -r requirements.txt
 
-CMD ["./wait-for-it.sh", "db:3306", "--", "python", "app.py"]
+ENTRYPOINT "./docker/python/entrypoint.sh"
